@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="{{api-url}}/js/tokenize-card"></script>
+    </head>
+    <body>
+        <form data-integrapay="PaymentForm" method="POST" action="{{action-url}}">
+            <!--Adding your business key -->
+            <input data-integrapay="BusinessKey" type="hidden" value="{{business-key}}" />
+            <input id="CardCcv" type="hidden" value="000" data-integrapay="CardCcv" />
+            <!--- Adding a token placeholder -->
+            <input data-integrapay="CardToken" name="CardToken" type="hidden" />
+            <!--Adding elements for card details-->
+            <input data-integrapay="CardName" name="CardName" type="text" autocomplete="off" />
+            <input data-integrapay="CardNumber" type="text" autocomplete="off" />
+            <select data-integrapay="CardExpiryMonth" name="CardExpiryMonth">
+                <!-- card expiry month options -->
+                <option value="01">Jan</option>
+                <option value="02">Feb</option>
+                <option value="03">Mar</option>
+                <option value="04">Apr</option>
+                <option value="05">May</option>
+                <option value="06">Jun</option>
+                <option value="07">Jul</option>
+                <option value="08">Aug</option>
+                <option value="09">Sep</option>
+                <option value="10">Oct</option>
+                <option value="11">Nov</option>
+                <option value="12">Dec</option>
+            </select>
+            <select data-integrapay="CardExpiryYear" name="CardExpiryYear">
+                <!-- card expiry year options -->
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+            </select>
+            <input data-integrapay="CardCcv" type="text" autocomplete="off" />
+
+            <!--Adding the error indicator-->
+            <div data-integrapay="Errors"></div>
+        
+            <!--Adding the progress indicator-->
+            <div data-integrapay="Processing"></div>
+
+            <!--Adding the submit button-->
+            <button data-integrapay="SubmitButton" type="button">Process Payment</button>
+        </form>
+    </body>
+</html>
